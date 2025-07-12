@@ -9,13 +9,19 @@
     "lint": "eslint src --ext .js,.vue",
     "lint:fix": "eslint src --ext .js,.vue --fix",
     "lint:style": "stylelint \"src/**/*.{css,scss,vue}\"",
-    "lint:style:fix": "stylelint \"src/**/*.{css,scss,vue}\" --fix"
+    "lint:style:fix": "stylelint \"src/**/*.{css,scss,vue}\" --fix",
+    "format": "npm run lint:fix && npm run lint:style:fix",
+    "format:check": "npm run lint && npm run lint:style",
+    "prepare": "husky"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "vue": "2.7"
+    "element-plus": "^2.10.4",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.17",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
@@ -28,6 +34,7 @@
     "eslint-plugin-vue": "^10.3.0",
     "html-webpack-plugin": "^5.6.3",
     "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "postcss-html": "^1.8.0",
     "postcss-scss": "^4.0.9",
     "sass": "^1.89.2",
@@ -38,19 +45,20 @@
     "stylelint-config-standard": "^38.0.0",
     "stylelint-scss": "^6.12.1",
     "vue-eslint-parser": "^10.2.0",
-    "vue-loader": "15.10.1",
-    "vue-style-loader": "^4.1.3",
-    "vue-template-compiler": "^2.7.16",
+    "vue-loader": "^17.4.2",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.2",
+    "webpackbar": "^7.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
-      "eslint --fix"
+      "eslint --fix",
+      "git add"
     ],
     "*.{scss,css,vue}": [
-      "stylelint --config ./.stylelintrc --fix"
+      "stylelint --fix",
+      "git add"
     ]
   }
 }
