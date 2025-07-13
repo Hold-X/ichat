@@ -187,6 +187,9 @@ export default [
 
             // Vue 特定规则
             'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+            'vue/multi-word-component-names': ['error', {
+                'ignores': ['index']
+            }],
             'vue/no-unused-components': 'warn',
             'vue/no-unused-vars': 'error',
             'vue/require-default-prop': 'error',

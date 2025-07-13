@@ -17,6 +17,15 @@ export default {
         'no-descending-specificity': null,
         'font-family-no-missing-generic-family-keyword': null,
 
+        // 允许第三方库的类名格式（忽略 Element Plus 等第三方库的类名）
+        'selector-class-pattern': [
+            '^([a-z][a-z0-9]*(-[a-z0-9]+)*|el-.*)$',
+            {
+                'resolveNestedSelectors': true,
+                'message': 'Expected class selector to be kebab-case'
+            }
+        ],
+
         // Vue 特定规则
         'selector-pseudo-element-no-unknown': [true, {
             ignorePseudoElements: ['v-deep', 'v-global', 'v-slotted']
